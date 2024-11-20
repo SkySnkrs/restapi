@@ -2,8 +2,10 @@ import { dbContext } from "../db/DbContext"
 
 class RatsService {
     async getRats() {
+
         const rats = await dbContext.Rats.find()
         return rats
+
     }
 }
 
