@@ -3,7 +3,7 @@ import { dbContext } from "../db/DbContext"
 class RatsService {
 
     async getMissionsByRatsId(ratId) {
-        const missions = await dbContext.Missions.findById(ratId)
+        const missions = await dbContext.Missions.find({ ratId: ratId })
         return missions
     }
 
