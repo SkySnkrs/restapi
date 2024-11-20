@@ -2,6 +2,15 @@ import { dbContext } from "../db/DbContext"
 
 class MissionsService {
 
+    async putMissions(missionId, missionData) {
+        const missionToUpdate = await dbContext.Missions.findById(missionId)
+
+        missionToUpdate.completed = missionData.completed
+
+        await missionToUpdate.save()
+        return missionToUpdate
+    }
+
     async postMissions(missionData) {
         const mission = await dbContext.Missions.create(missionData)
 
